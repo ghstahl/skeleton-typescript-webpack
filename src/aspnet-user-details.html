@@ -1,0 +1,21 @@
+<template>
+  <require from="./blur-image"></require>
+
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <div class="row au-stagger">
+
+        <div class="card">
+          <canvas class="header-bg" width="250" height="70" blur-image.bind="image"></canvas>
+          <div class="avatar">
+            <span style="font-size:5.5em;" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          </div>
+          <div class="content">
+            <p class="name">${user.UserName}</p>
+            <p><a target="_blank" class="btn btn-default" href.bind="user.html_url">Contact</a></p>
+          </div>
+        </div>
+
+    </div>
+  </section>
+</template>
