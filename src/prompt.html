@@ -3,14 +3,17 @@
         <ai-dialog-header>${question}</ai-dialog-header>
 
         <ai-dialog-body>
-            <form submit.trigger="controller.ok(answer)">
-                <input type="text" value.bind="answer" style="width: 100%; line-height: 16px; font-size: 16px" attach-focus>
-            </form>
+                <div class="radio">
+                    <label class="radio control-label" repeat.for="choice of choices">
+                        <input type="radio" name="chi" value.bind="choice" checked.bind="$parent.choice" />
+                        ${choice}
+                    </label>
+                </div>
         </ai-dialog-body>
 
         <ai-dialog-footer>
             <button click.trigger="controller.cancel()">Cancel</button>
-            <button click.trigger="controller.ok(answer)">Ok</button>
+            <button click.trigger="controller.ok(choice)">Ok</button>
         </ai-dialog-footer>
     </ai-dialog>
 </template>

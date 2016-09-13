@@ -9,13 +9,16 @@ import {DialogController} from 'aurelia-dialog';
 export class Prompt {
     static inject = [DialogController];
     controller:DialogController;
-    answer:string;
+    choice:string;
     question:string;
+    defaultChoice:string = "No";
+    choices = ["Yes","No"];
     constructor(controller) {
         this.controller = controller;
-        this.answer = null;
+        this.choice = this.defaultChoice;
 
         controller.settings.lock = false;
+
     }
 
     activate(question) {

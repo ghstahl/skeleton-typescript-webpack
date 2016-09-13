@@ -1,6 +1,10 @@
 <template>
   <require from="./prompt"></require>
   <section class="au-animate">
+    <button [class.hidden]="addingRole" [disabled]="!areRolesAvailable" class="btn btn-primary" click.trigger="addRoleModal()">
+      <i class="fa fa-plus" aria-hidden="true"></i>Add Role</button>
+    <hr/>
+
     <div class="row au-stagger">
       <div class="col-sm-6 col-md-3 card-container au-animate" repeat.for="role of userRecord.Roles">
         <div class="card">
