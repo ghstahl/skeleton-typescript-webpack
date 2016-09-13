@@ -5,7 +5,7 @@ import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 import 'nprogress';
-import 'nprogress/nprogress.css'
+import 'nprogress/nprogress.css';
 // comment out if you don't want a Promise polyfill (remove also from webpack.config.js)
 import * as Bluebird from 'bluebird';
 Bluebird.config({ warnings: false });
@@ -15,6 +15,12 @@ export async function configure(aurelia: Aurelia) {
     .standardConfiguration()
     .feature('resources')
     .developmentLogging();
+  aurelia.use.plugin('aurelia-dialog', config => {
+    config.useDefaults();
+    config.settings.lock = false;
+    config.settings.centerHorizontalOnly = false;
+    config.settings.startingZIndex = 1005;
+  });
 
   // Uncomment the line below to enable animation.
   // aurelia.use.plugin('aurelia-animator-css');

@@ -1,0 +1,20 @@
+<template>
+  <require from="./prompt"></require>
+  <section class="au-animate">
+    <div class="row au-stagger">
+      <div class="col-sm-6 col-md-3 card-container au-animate" repeat.for="role of userRecord.Roles">
+        <div class="card">
+          <canvas class="header-bg" width="250" height="70" blur-image.bind="image"></canvas>
+          <div class="avatar">
+            <span style="font-size:3.5em;" class="glyphicon glyphicon-film" aria-hidden="true"></span>
+          </div>
+          <div class="content">
+            <p class="name">${role}</p>
+            <p><a  class="btn btn-default" click.trigger="deleteRole(role)">Delete</a></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

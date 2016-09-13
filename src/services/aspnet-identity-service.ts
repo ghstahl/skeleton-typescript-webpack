@@ -28,6 +28,7 @@ export interface IUserRecord {
 export class AspNetUserService {
     heading: string = 'AspNet Users';
     usersPage: IUsersPage = null;
+    currentUser:IUserRecord = null;
     http: HttpClient;
     pageNumber: number;
     baseUrl:string;
@@ -111,6 +112,7 @@ export class AspNetUserService {
             .finally(()=>{
                 inUseManager.decrement(1);
             });
+        this.currentUser = user;
         return user;
     }
 }
