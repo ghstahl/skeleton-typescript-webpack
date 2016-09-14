@@ -1,7 +1,9 @@
 <template>
-  <require from="./prompt"></require>
+  <require from="./common-dialogs/prompt"></require>
+  <require from="./common-dialogs/info-prompt"></require>
+  <require from="./add-role-dialog"></require>
   <section class="au-animate">
-    <button [class.hidden]="addingRole" [disabled]="!areRolesAvailable" class="btn btn-primary" click.trigger="addRoleModal()">
+    <button [class.hidden]="addingRole" disabled.bind="!areRolesAvailable" class="btn btn-primary" click.trigger="addRole()">
       <i class="fa fa-plus" aria-hidden="true"></i>Add Role</button>
     <hr/>
 

@@ -1,0 +1,19 @@
+<template>
+    <ai-dialog>
+        <ai-dialog-header>${header}</ai-dialog-header>
+
+        <ai-dialog-body>
+                <div class="radio">
+                    <label class="radio control-label" repeat.for="choice of choices">
+                        <input type="radio" name="chi" value.bind="choice" checked.bind="$parent.choice" />
+                        ${choice}
+                    </label>
+                </div>
+        </ai-dialog-body>
+
+        <ai-dialog-footer>
+            <button click.trigger="controller.cancel()">Cancel</button>
+            <button click.trigger="controller.ok(choice)">Ok</button>
+        </ai-dialog-footer>
+    </ai-dialog>
+</template>

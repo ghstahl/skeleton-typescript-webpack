@@ -1,0 +1,27 @@
+<template>
+    <ai-dialog>
+        <ai-dialog-header>${question}</ai-dialog-header>
+
+        <div [class.hidden]="!areRolesAvailable">
+
+        <ai-dialog-body>
+            <label  >
+                ${question}<br/>
+                <select value.bind="choice">
+                    <option value="">Choose...</option>
+                    <option repeat.for="role of filteredAvailableRoles"
+                            value.bind="role">
+                        ${role}
+                    </option>
+                </select>
+            </label>
+            Selected product: ${choice}
+        </ai-dialog-body>
+        </div>
+
+        <ai-dialog-footer>
+            <button click.trigger="controller.cancel()">Cancel</button>
+            <button click.trigger="controller.ok(choice)">Ok</button>
+        </ai-dialog-footer>
+    </ai-dialog>
+</template>
