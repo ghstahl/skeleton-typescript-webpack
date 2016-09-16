@@ -1,23 +1,22 @@
 <template>
+    <require from="./resources/elements/bootstrap-select-picker"></require>
     <ai-dialog>
-        <ai-dialog-header>${question}</ai-dialog-header>
+        <ai-dialog-header>Assign Role</ai-dialog-header>
 
-        <div [class.hidden]="!areRolesAvailable">
 
         <ai-dialog-body>
-            <label  >
-                ${question}<br/>
-                <select value.bind="choice">
-                    <option value="">Choose...</option>
-                    <option repeat.for="role of filteredAvailableRoles"
-                            value.bind="role">
-                        ${role}
-                    </option>
-                </select>
-            </label>
-            Selected product: ${choice}
+            <form submit.trigger="controller.ok(answer)">
+                <div class="form-group">
+                    <label for="ln">Role</label>
+                    <select-picker selectable-values.bind="filteredAvailableRoles"
+                                   selected-value.two-way="choice" id="ln"></select-picker>
+                </div>
+            </form>
+            <div>
+
+            Selected role: ${choice}
+            </div>
         </ai-dialog-body>
-        </div>
 
         <ai-dialog-footer>
             <button click.trigger="controller.cancel()">Cancel</button>
